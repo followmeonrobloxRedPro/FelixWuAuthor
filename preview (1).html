@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felix Wu | Author</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #444;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      margin-top: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    .series-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .series-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border-left: 6px solid #444;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .series-card:hover {
+      transform: translateY(-3px);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .book-title {
+      font-weight: bold;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: #444;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Felix Wu</h1>
+  <p>Fiction & Non-Fiction Author</p>
+</header>
+
+<nav>
+  <a onclick="showPage('home')">Home</a>
+  <a onclick="showPage('contact')">Contact</a>
+</nav>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+  <h2>About Me</h2>
+  <p>Hello! I'm Felix Wu, an author who writes both fiction and non-fiction. I enjoy creating imaginative stories as well as sharing interesting knowledge about the world. My work is inspired by curiosity, creativity, and a passion for storytelling.</p>
+
+  <h2>My Book Series</h2>
+
+  <div class="series-container">
+    <div class="series-card" onclick="showPage('standalone')">
+      <h3>Standalone Works</h3>
+      <p>Click to view all standalone books</p>
+    </div>
+
+    <div class="series-card" onclick="showPage('spirit')">
+      <h3>Spirit Series</h3>
+      <p>Click to explore the Spirit Series</p>
+    </div>
+
+    <div class="series-card" onclick="showPage('monster')">
+      <h3>Monster Quest Series</h3>
+      <p>Click to explore the Monster Quest Series</p>
+    </div>
+  </div>
+</section>
+
+<!-- STANDALONE PAGE -->
+<section id="standalone" class="page">
+  <a class="back-btn" onclick="showPage('home')">← Back</a>
+  <h2>Standalone Works</h2>
+  <ul>
+    <li><span class="book-title">Nature Fact File</span></li>
+    <li><span class="book-title">The Days of Life</span></li>
+    <li><span class="book-title">Global Warming / Climate Change</span></li>
+    <li><span class="book-title">AI Takeover</span></li>
+  </ul>
+</section>
+
+<!-- SPIRIT PAGE -->
+<section id="spirit" class="page">
+  <a class="back-btn" onclick="showPage('home')">← Back</a>
+  <h2>Spirit Series</h2>
+  <ul>
+    <li><span class="book-title">The Story of the Old Spirit</span></li>
+    <li><span class="book-title">The Story of the New World Spirit</span></li>
+    <li><span class="book-title">The Story of the Spirit Goodbye</span></li>
+  </ul>
+</section>
+
+<!-- MONSTER PAGE -->
+<section id="monster" class="page">
+  <a class="back-btn" onclick="showPage('home')">← Back</a>
+  <h2>Monster Quest Series</h2>
+
+  <h3>Series 1 - The Five Gods of Elements</h3>
+  <ul>
+    <li><span class="book-title">The Fire God</span></li>
+    <li><span class="book-title">The Water God</span></li>
+    <li><span class="book-title">The Air God</span></li>
+    <li><span class="book-title">The Earth God</span></li>
+    <li><span class="book-title">The Gold God</span></li>
+  </ul>
+
+  <h3>Series 2 - The Five Tokens of Monsters</h3>
+  <p>(Coming soon!)</p>
+
+  <h3>Series 3 - The Full Gold Armour</h3>
+  <p>(Coming soon!)</p>
+</section>
+
+<!-- CONTACT PAGE -->
+<section id="contact" class="page">
+  <a class="back-btn" onclick="showPage('home')">← Back</a>
+  <h2>Contact</h2>
+  <p>Email: felix.wu@rochester-college.org.uk</p>
+</section>
+
+<footer>
+  <p>© 2026 Felix Wu. All rights reserved.</p>
+</footer>
+
+<script>
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
